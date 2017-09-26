@@ -1,0 +1,11 @@
+{{#sprites}}
+.icon-{{name}}:before {
+	content: " ";
+	display: inline-block;
+	background-image: url({{{escaped_image}}});
+	background-position: calc({{px.offset_x}} / 2) calc({{px.offset_y}} / 2);
+	width: calc({{px.width}} / 2);
+	height: calc({{px.height}} / 2);
+	background-size: calc({{px.total_width}} / 2) calc({{px.total_height}} / 2);
+}
+{{/sprites}}

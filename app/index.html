@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+	#include("./components/header/header.html")
+	<div id='root'>root</div>
+	${require('./components/footer/footer.html')}
+	<div class="test">test</div>
+	<img src="./assets/images/share_02.jpg" data-src="./assets/images/amuse-i.png" alt="1">
+	<img src="${require(`./assets/images/share_02.jpg`)}" alt="2">
+	<span class="icon-a-2x"></span>
+	<span class="icon-b-2x"></span>
+	<span class="icon-c-2x"></span>
+	<span class="icon-d-2x"></span>
+	<a href="./">zxczxc</a>
+	<div class="test-css-module">
+		test-css-module
+		<a href="./">hhh</a>
+	</div>
+</body>
+</body>
+</html>
