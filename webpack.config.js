@@ -13,12 +13,11 @@ module.exports = {
 	// devtool: 'none',
 	entry: {
 		main: './app/index.js',
-		vendor: ['jquery', 'bootstrap'],
-		common: ['bootstrap/dist/css/bootstrap.css']
+		vendor: ['jquery', 'swiper', 'swiper/dist/css/swiper.css']
 	},
 	output: {
 		path: path.join(__dirname, "build"),
-		filename: 'assets/scripts/bundle.[chunkhash:8].js',
+		filename: 'assets/scripts/[name].[chunkhash:8].js',
 		publicPath: '/'
 	},
 	// resolve: {
@@ -27,6 +26,9 @@ module.exports = {
  //            '@': resolve('app')
  //        }
  //    },
+ 	// externals: {
+  //       jquery: 'jQuery'//jquery不会被打包，需要手动通过外部引用的方法
+  //   },
 	devServer: {
         contentBase: path.join(__dirname, "build"),
         headers: {
@@ -137,7 +139,7 @@ module.exports = {
 	    new HtmlWebpackPlugin({
 	    	filename: 'index.html',
 	    	template: 'html-withimg-loader!app/index.html',
-	    	chunks: ['manifest', 'vendor', 'main', 'common']
+	    	chunks: ['manifest', 'vendor', 'main']// 
 	    })
 	]
 }

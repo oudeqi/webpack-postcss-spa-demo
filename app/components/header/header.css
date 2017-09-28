@@ -1,22 +1,101 @@
-/*如果启用了css modules :global 包含的块的类名不会被重写 */
-:global{
-	.test-css-module{
-		color: #fff;
-		line-height: 40px;
-		height: 40px;
-		background-color: skyblue;
-		a{
-			color: red;
-		}
-	}
+@import '../../assets/styles/_variable.css';
+@import '../../assets/styles/_mixins.css';
+.xxx{
+	height: 100px;
+	background: #333;
 }
 .header{
-	line-height: 40px;
-	height: 40px;
-	background-color: skyblue;
-	color: #fff;
-	text-indent: 20px;
-	a{
-		color: red;
+	height: px2em(80);
+	min-width: $min_width;
+	width: 100%;
+	background: #fff;
+	position: relative;
+	.nav{
+		text-align: center;
+		padding-left: px2em(310);
+		padding-right: px2em(310);
+		ul.nav-inner{
+			display: inline-block;
+			@mixin clearfix;
+			li.nav-item{
+				float: left;
+				padding: 0 px2em(20);
+				height: px2em(80);
+				position: relative;
+				& > a{
+					text-decoration: none;
+					line-height: px2em(80);
+					color: inherit;
+					text-decoration: none;
+					&.active{
+						color: #6eba3c;
+					}
+					&.curr{
+						color: #6eba3c;
+					}
+				}
+				& > ul{
+					position: relative;
+					top: -4px;
+					border-top: 4px solid #6eba3c;
+					background: #41414a;
+					padding-top: 4px;
+					padding-bottom: 4px;
+					z-index: 1000;
+					display: none;
+					li{
+						display: block;
+						text-align: center;
+						padding: px2em(6) px2em(4);
+						a{
+							color: #fff;
+							font-size: px2em(20);
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	.logo{
+		position: absolute;
+		top: 0;
+		left: px2em(100);
+		padding-top: px2em(14);
+		a{
+			display: block;
+			img{
+				display: block;
+				width: px2em(200);
+				height: auto;
+			}
+		}
+	}
+	.tel{
+		position: absolute;
+		top: px2em(18);
+		right: 0;
+		padding-right: px2em(100);
+		a{
+			display: block;
+			text-decoration: none;
+			font-family: SimHei;
+			img{
+				display: inline-block;
+				vertical-align: middle;
+				width: px2em(39);
+				height: px2em(39);
+				border: none;
+			}
+			span{
+				color: #6eba3c;
+				display: inline-block;
+				vertical-align: middle;
+				text-decoration: none;
+				font-size: px2em(28);
+				font-weight: bold;
+			}
+		}
+		
 	}
 }

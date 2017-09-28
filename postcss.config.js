@@ -15,10 +15,10 @@ module.exports = {
 			relative: true
 	    }),
 		require('postcss-will-change'),//给不支持will-change属性的浏览器触发GPU处理器
-		// require('postcss-color-rgba-fallback'),//给不支持rgba的ie8作降级处理
-		// require('postcss-opacity'),//给不支持opacity的ie8作降级处理
-		// require('postcss-pseudoelements'),//给不支持::伪元素的ie8作降级处理
-		// require('postcss-vmin'),//给不支持vmin的ie9作降级处理
+		require('postcss-color-rgba-fallback'),//给不支持rgba的ie8作降级处理
+		require('postcss-opacity'),//给不支持opacity的ie8作降级处理
+		require('postcss-pseudoelements'),//给不支持::伪元素的ie8作降级处理
+		require('postcss-vmin'),//给不支持vmin的ie9作降级处理
 		require('postcss-calc'),//尽可能让calc输出静态的值
 		require('postcss-at2x'),//retina 2倍图片
 		require('postcss-write-svg'),//在样式表的写svg // TODO 可能要废弃,与cssnano不兼容
@@ -28,6 +28,9 @@ module.exports = {
 			functions: {
 		        px2rem: function (int) {
 		        	return parseFloat(int / 32) + 'rem';
+		        },
+		        px2em: function (int, base) {
+		        	return parseFloat(int / (base || 18)) + 'em';
 		        }
 		    }
 		}),//自定义函数 px2rem

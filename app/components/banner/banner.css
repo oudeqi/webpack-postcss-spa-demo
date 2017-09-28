@@ -1,0 +1,144 @@
+@import '../../assets/styles/_variable.css';
+@import '../../assets/styles/_mixins.css';
+@import '../../assets/styles/_extends.css';
+
+#banner{
+	@extend layout_responsive;
+}
+
+#banner {
+	min-width: $min_width;
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	.swiper-slide {
+		width:100%;
+		/*给swiper-slide设置响应式的高度：
+		若最大宽时的高为1080，则可得出响应式高度为10.8em，
+		（1080 / 100 = 10.8）*/
+		height: px2em(1080, 100);
+		background-color: #eee;
+		.inner{
+			color: #fff;
+			line-height: 1;
+			text-align: center;
+			letter-spacing: 2px;
+		}
+		img{
+			width: 50px;
+			display: block;
+			height: auto;
+		}
+	}
+	.pagination {
+		position: absolute;
+		left: 0;
+		text-align: center;
+		bottom: 20px;
+		width: 100%;
+		z-index:999;
+		@extend font_responsive;
+	}
+	.swiper-pagination-bullet {
+		display: inline-block;
+		width: px2em(60);
+		height: 4px;
+		border-radius: 1px;
+		background: #fff;
+		margin: 0 5px;
+		cursor: pointer;
+		/*transform:scale(0.4, 0.4);*/
+		transition: all 0.3s ease-in-out;
+		opacity: 1;
+	}
+	.swiper-pagination-bullet-active {
+		/*transform:scale(1,1);*/
+		background-color: #6eba3c;
+	}
+	/*.arrow-left {
+		background: url(../../assets/images/banner_arrow.png) no-repeat left top;
+		position: absolute;
+		left: 20px;
+		top: 55%;
+		margin-top: -35px;
+		width: 70px;
+		height: 70px;
+		z-index:999;
+	}
+	.arrow-right {
+		background: url(../../assets/images/banner_arrow.png) no-repeat left bottom;
+		position: absolute;
+		right: 20px;
+		top:55%;
+		margin-top: -35px;
+		width: 70px;
+		height: 70px;
+		z-index:999;
+	}*/
+}
+
+#swiper-slide1{
+	background: url(../../assets/images/banner-1.jpg) no-repeat center;
+	background-size: cover;
+	h2{
+		padding-top: px2em(330, 100);
+		font-size: 1em;
+	}
+	.p1{
+		font-size: px2em(50, 100);
+		padding-top: px2em(30, 50);
+		
+	}
+	.p2{
+		font-size: px2em(30, 100);
+		padding-top: px2em(32, 30);
+		span{
+			border: px2em(2, 30) solid #fff;
+			padding: px2em(18, 30) px2em(22, 30);
+			display: inline-block;
+		}
+	}
+}
+
+#swiper-slide2{
+	background: url(../../assets/images/banner-2.jpg) no-repeat center;
+	background-size: cover;
+	h2{
+		font-size: px2em(60, 100);
+		padding-top: px2em(400, 60);
+	}
+	p{
+		font-size: px2em(30, 100);
+		padding-top: px2em(20, 30);
+	}
+}
+
+#swiper-slide3{
+	background: url(../../assets/images/banner-3.jpg) no-repeat center;
+	background-size: cover;
+	h2{
+		font-size: px2em(70, 100);
+		padding-top: px2em(365, 70);
+		padding-left: px2em(400, 70);
+		text-align: left;
+	}
+	p{
+		font-size: px2em(30, 100);
+		padding-top: px2em(28, 30);
+		padding-left: px2em(160, 30);
+		text-align: left;
+	}
+}
+
+#swiper-slide4{
+	background: url(../../assets/images/banner-4.jpg) no-repeat center;
+	background-size: cover;
+	h2{
+		font-size: px2em(60, 100);
+		padding-top: px2em(330, 60);
+	}
+	p{
+		font-size: px2em(30, 100);
+		padding-top: px2em(30, 30);
+	}
+}
