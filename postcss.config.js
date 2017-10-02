@@ -27,10 +27,10 @@ module.exports = {
 		require('postcss-functions')({
 			functions: {
 		        px2rem: function (int) {
-		        	return parseFloat(int / 32) + 'rem';
+		        	return parseFloat(parseInt(int) / 32) + 'rem';
 		        },
 		        px2em: function (int, base) {
-		        	return parseFloat(int / (base || 18)) + 'em';
+		        	return parseFloat(parseInt(int) / (base || 18)) + 'em';
 		        }
 		    }
 		}),//自定义函数 px2rem
@@ -38,5 +38,6 @@ module.exports = {
 		require('autoprefixer')({ browsers: ['> 1%'] }),
 		require('postcss-mq-keyframes'),//将所有关键帧从现有媒体查询中移动到样式表的底部
 		require('css-mqpacker'),//相同的媒体查询样式合并到一个媒体查询中
+		require('cssnano')
     ]
 }

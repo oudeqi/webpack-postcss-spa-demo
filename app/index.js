@@ -1,7 +1,8 @@
 import './assets/styles/base.css';
 import './assets/styles/sprite.css';
 import './components/header/header.css';
-import './components/banner/banner.css';
+import './components/index/index.css';
+import './components/footer/footer.css';
 
 $('.nav-item').mouseenter(function(){
 	$(this).find('ul').show();

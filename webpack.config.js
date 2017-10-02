@@ -9,8 +9,8 @@ const resolve = function(dir) {
 };
 
 module.exports = {
-	devtool: 'eval-source-map',
-	// devtool: 'none',
+	// devtool: 'eval-source-map',
+	devtool: 'none',
 	entry: {
 		main: './app/index.js',
 		vendor: ['jquery', 'swiper', 'swiper/dist/css/swiper.css']
@@ -77,7 +77,7 @@ module.exports = {
                     name: 'assets/images/[name].[hash:8].[ext]',
                     // outputPath: '/assets/',
                     publicPath: '/',
-                    limit: 1024
+                    limit: 1024 * 3
                 }
             },
             {
@@ -143,3 +143,5 @@ module.exports = {
 	    })
 	]
 }
+// TODO 如何清除css里面的注释
+// TODO postcss 如何生成source-map
