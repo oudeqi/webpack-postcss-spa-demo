@@ -1,9 +1,6 @@
 @import '../../assets/styles/_variable.css';
 @import '../../assets/styles/_mixins.css';
-.xxx{
-	height: 100px;
-	background: #333;
-}
+
 .header{
 	height: px2em(80);
 	min-width: $min_width;
