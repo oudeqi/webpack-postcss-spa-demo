@@ -1,8 +1,8 @@
 ##############################
 .idea/
 .project
-node_modules/
-build/
 app/assets/images/sprite.png
 app/assets/styles/sprite.css
+node_modules/
+dist/
 ##############################
