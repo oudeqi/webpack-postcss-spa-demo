@@ -8,6 +8,12 @@ let NODE_ENV = require('../config').NODE_ENV;
 let PUBLIC_PATH = require('../config').PUBLIC_PATH;
 let SERVICE_URL = require('../config').SERVICE_URL;
 
+let minify = {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeAttributeQuotes: true
+};
+
 module.exports = {
 	entry: {
 		main: './app/index.js',
@@ -32,7 +38,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    publicPath: PUBLIC_PATH,
+                    publicPath: '../../',
                     use: [{
                         loader: "css-loader",
                         options: {
@@ -42,7 +48,7 @@ module.exports = {
                         loader: "postcss-loader",
                         options: {
                             config: {
-                                path: './postcss.config.js',
+                                path: 'postcss.config.js',
                                 ctx: {
                                     autoprefixer: {browsers: ['> 1%']}
                                 }
@@ -56,8 +62,6 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     name: 'assets/images/[name].[hash:8].[ext]',
-                    // outputPath: '/assets/',
-                    publicPath: PUBLIC_PATH,
                     limit: 1024 * 3
                 }
             },
@@ -89,7 +93,7 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     name: 'assets/fonts/[name].[hash:8].[ext]',
-                    publicPath: PUBLIC_PATH,
+                    publicPath: '../../',
                 }
             }
         ]
@@ -127,13 +131,7 @@ module.exports = {
             template: 'html-withimg-loader!app/index.html',
             chunks: ['manifest', 'vendor', 'main'],
             inject: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true
-                // more options:
-                // https://github.com/kangax/html-minifier#options-quick-reference
-            },
+            minify: NODE_ENV === 'production' ? minify : false,
             // necessary to consistently work with multiple chunks via CommonsChunkPlugin
             chunksSortMode: 'dependency'
         })
